@@ -38,6 +38,10 @@ def dec_single_level_gray(img, percent):
     stacked = np.stack([ad, dd, da])
     return stacked
 
+def dec_gray_thumbnail(img):
+    c = LL, (LH, HL, HH) = pywt.dwt2(img, "db8", mode="periodization")
+    return LL
+
 def dec_img_multichannel(img, l, percent):
     decs = []
     for channel in img:
