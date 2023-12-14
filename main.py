@@ -530,7 +530,7 @@ def preprocess(input_tensor):
     wavelet_images = []
     for i in range(input_tensor.shape[0]):
         img = gray_images[i, 0, :, :].cpu().numpy()  # Convert torch tensor to numpy array
-        coeffs = pywt.dwt2(img, 'db8')  # Perform 2D wavelet transform using 'haar' wavelet
+        coeffs = pywt.dwt2(img, 'haar')  # Perform 2D wavelet transform using 'haar' wavelet
         cA, (cH, cV, cD) = coeffs
         # Stack the thumbnail and 3 detail parts together
         wavelet_image = torch.from_numpy(
